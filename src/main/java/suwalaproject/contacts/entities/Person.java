@@ -1,6 +1,7 @@
 package suwalaproject.contacts.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -80,6 +81,9 @@ public class Person {
     }
 
     public List<Address> getAddresses() {
+        if (addresses == null){
+            addresses = new ArrayList<>();
+        }
         return addresses;
     }
 
@@ -88,6 +92,9 @@ public class Person {
     }
 
     public List<EmailAddress> getEmailAddresses() {
+        if (emailAddresses == null){
+            emailAddresses = new ArrayList<>();
+        }
         return emailAddresses;
     }
 
@@ -96,6 +103,9 @@ public class Person {
     }
 
     public List<PhoneNumber> getPhoneNumbers() {
+        if (phoneNumbers == null){
+            phoneNumbers = new ArrayList<>();
+        }
         return phoneNumbers;
     }
 

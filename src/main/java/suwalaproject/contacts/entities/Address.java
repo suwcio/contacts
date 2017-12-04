@@ -100,6 +100,10 @@ public class Address {
         this.country = country;
     }
 
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

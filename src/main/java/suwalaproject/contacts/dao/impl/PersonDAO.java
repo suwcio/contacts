@@ -1,6 +1,7 @@
 package suwalaproject.contacts.dao.impl;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import suwalaproject.contacts.dao.PersonRepository;
 import suwalaproject.contacts.entities.Person;
 
@@ -40,18 +41,16 @@ public class PersonDAO implements PersonRepository {
     }
 
     @Override
+    @Transactional
     public Person createPerson(Person person) {
-        entityManager.getTransaction().begin();
         Person createdPerson = entityManager.merge(person);
-        entityManager.getTransaction().commit();
         return createdPerson;
     }
 
     @Override
+    @Transactional
     public void deletePerson(Long id) {
         Person person = findPersonById(id);
-        entityManager.getTransaction().begin();
         entityManager.remove(person);
-        entityManager.getTransaction().commit();
     }
 }

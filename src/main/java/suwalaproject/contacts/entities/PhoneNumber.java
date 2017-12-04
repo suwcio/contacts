@@ -40,6 +40,10 @@ public class PhoneNumber {
         this.phoneNumber = phoneNumber;
     }
 
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -48,8 +52,7 @@ public class PhoneNumber {
         PhoneNumber that = (PhoneNumber) o;
 
         if (!id.equals(that.id)) return false;
-        if (!phoneNumber.equals(that.phoneNumber)) return false;
-        return person.equals(that.person);
+        return phoneNumber.equals(that.phoneNumber);
 
     }
 
@@ -57,7 +60,6 @@ public class PhoneNumber {
     public int hashCode() {
         int result = id.hashCode();
         result = 31 * result + phoneNumber.hashCode();
-        result = 31 * result + person.hashCode();
         return result;
     }
 }

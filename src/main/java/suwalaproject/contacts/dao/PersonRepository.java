@@ -1,7 +1,6 @@
 package suwalaproject.contacts.dao;
 
 import suwalaproject.contacts.entities.Person;
-
 import java.util.List;
 
 public interface PersonRepository {

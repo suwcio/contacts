@@ -40,6 +40,10 @@ public class EmailAddress {
         this.emailAddress = emailAddress;
     }
 
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
