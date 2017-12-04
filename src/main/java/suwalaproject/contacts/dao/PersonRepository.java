@@ -11,6 +11,6 @@ public interface PersonRepository {
     List<Person> findPersonByLastname(String lastname);
     List<Person> findPersonBySex(Character sex);
 
-    void createPerson(Person person);
+    Person createPerson(Person person);
     void deletePerson(Long id);
 }

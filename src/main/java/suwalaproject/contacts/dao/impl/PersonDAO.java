@@ -40,10 +40,11 @@ public class PersonDAO implements PersonRepository {
     }
 
     @Override
-    public void createPerson(Person person) {
+    public Person createPerson(Person person) {
         entityManager.getTransaction().begin();
-        entityManager.persist(person);
+        Person createdPerson = entityManager.merge(person);
         entityManager.getTransaction().commit();
+        return createdPerson;
     }
 
     @Override
