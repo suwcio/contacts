@@ -15,4 +15,5 @@ public interface PersonService {
 
     Person createPerson(Person person);
     void deletePerson(Long id);
+    Person editPerson(Person person);
 }

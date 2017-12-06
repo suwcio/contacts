@@ -62,12 +62,43 @@ public class PersonServiceImpl implements PersonService {
             person.setEmailAddresses(emailAddresses);
         }
 
-        Person createdPerson = personRepository.createPerson(person);
+        Person createdPerson = personRepository.save(person);
         return createdPerson;
     }
 
     @Override
     public void deletePerson(Long id) {
-        personRepository.deletePerson(id);
+        personRepository.delete(id);
     }
+
+    @Override
+    public Person editPerson(Person person) {
+        Person personFromDatabase = personRepository.findPersonById(person.getId());
+        if (!personFromDatabase.getFirstname().equals(person.getFirstname())){
+            personFromDatabase.setFirstname(person.getFirstname());
+        }
+
+        if (!personFromDatabase.getLastname().equals(person.getLastname())){
+            personFromDatabase.setLastname(person.getLastname());
+        }
+
+        if (!personFromDatabase.getSex().equals(person.getSex())){
+            personFromDatabase.setSex(person.getSex());
+        }
+
+        if (!personFromDatabase.getPhoneNumbers().equals(person.getPhoneNumbers())){
+            personFromDatabase.setPhoneNumbers(person.getPhoneNumbers());
+        }
+
+        if (!personFromDatabase.getAddresses().equals(person.getAddresses())){
+            personFromDatabase.setAddresses(person.getAddresses());
+        }
+
+        if (!personFromDatabase.getEmailAddresses().equals(person.getEmailAddresses())){
+            personFromDatabase.setEmailAddresses(person.getEmailAddresses());
+        }
+
+        return personRepository.save(personFromDatabase);
+    }
+
 }

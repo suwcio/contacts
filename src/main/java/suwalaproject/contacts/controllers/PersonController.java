@@ -50,4 +50,10 @@ public class PersonController {
     public void deletePerson(@PathVariable("id") Long id){
         personService.deletePerson(id);
     }
+
+    @RequestMapping(value = PersonRestURIConstants.EDIT_PERSON, method = RequestMethod.PUT)
+    @ResponseBody
+    public Person editPerson(@RequestBody Person person){
+        return personService.editPerson(person);
+    }
 }

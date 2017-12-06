@@ -35,11 +35,9 @@ public class PhoneNumberServiceImpl implements PhoneNumberService {
     @Override
     public PhoneNumber editPhoneNumber(PhoneNumber phoneNumber) {
         PhoneNumber phoneNumberFromDatabase = phoneNumberRepository.findPhoneNumberById(phoneNumber.getId());
-        if (!phoneNumberFromDatabase.getPhoneNumber().equals(phoneNumber.getPhoneNumber())){
+        if (!phoneNumberFromDatabase.getPhoneNumber().equals(phoneNumber.getPhoneNumber())) {
             phoneNumberFromDatabase.setPhoneNumber(phoneNumber.getPhoneNumber());
-            return phoneNumberRepository.save(phoneNumberFromDatabase);
-        } else {
-            return null;
         }
+        return phoneNumberRepository.save(phoneNumberFromDatabase);
     }
 }

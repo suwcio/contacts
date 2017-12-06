@@ -9,4 +9,5 @@ public class PersonRestURIConstants {
 
     public static final String CREATE_PERSON = "createPerson";
     public static final String DELETE_PERSON = "deletePerson/{id}";
+    public static final String EDIT_PERSON = "editPerson";
 }
