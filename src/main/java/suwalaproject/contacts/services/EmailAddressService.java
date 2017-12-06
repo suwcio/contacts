@@ -7,7 +7,7 @@ import java.util.List;
 public interface EmailAddressService {
 
     EmailAddress findEmailAddressById(Long id);
-    List<EmailAddress> findEmailAddressByEmailAddress(String emailAddress);
+    EmailAddress findEmailAddressByEmailAddress(String emailAddress);
 
     EmailAddress createEmailAddress(EmailAddress emailAddress);
     void deleteEmailAddress(Long id);

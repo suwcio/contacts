@@ -13,4 +13,8 @@ public interface AddressService {
     List<Address> findAddressByApartmentNumber(String apartmentNumber);
     List<Address> findAddressByCity(String city);
     List<Address> findAddressByCountry(String country);
+
+    Address createAddress(Address address);
+    void deleteAddress(Long id);
+    Address editAddress(Address address);
 }
