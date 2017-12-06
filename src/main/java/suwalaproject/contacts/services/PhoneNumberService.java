@@ -9,6 +9,5 @@ public interface PhoneNumberService {
 
     PhoneNumber createPhoneNumber(PhoneNumber phoneNumber);
     void deletePhoneNumber(Long id);
-
     PhoneNumber editPhoneNumber(PhoneNumber phoneNumber);
 }
