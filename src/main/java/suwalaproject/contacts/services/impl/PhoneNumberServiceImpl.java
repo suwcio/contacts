@@ -6,6 +6,8 @@ import suwalaproject.contacts.dao.PhoneNumberRepository;
 import suwalaproject.contacts.entities.PhoneNumber;
 import suwalaproject.contacts.services.PhoneNumberService;
 
+import java.util.List;
+
 @Service
 public class PhoneNumberServiceImpl implements PhoneNumberService {
 
@@ -20,6 +22,11 @@ public class PhoneNumberServiceImpl implements PhoneNumberService {
     @Override
     public PhoneNumber findPhoneNumberByPhoneNumber(String phoneNumber) {
         return phoneNumberRepository.findPhoneNumberByPhoneNumber(phoneNumber);
+    }
+
+    @Override
+    public List<PhoneNumber> findAll() {
+        return (List<PhoneNumber>) phoneNumberRepository.findAll();
     }
 
     @Override

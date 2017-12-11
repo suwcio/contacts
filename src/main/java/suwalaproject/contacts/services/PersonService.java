@@ -12,6 +12,7 @@ public interface PersonService {
     List<Person> findPersonByFirstname(String firstname);
     List<Person> findPersonByLastname(String lastname);
     List<Person> findPersonBySex(Character sex);
+    List<Person> findAll();
 
     Person createPerson(Person person);
     void deletePerson(Long id);

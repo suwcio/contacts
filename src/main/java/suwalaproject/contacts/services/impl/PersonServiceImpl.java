@@ -37,6 +37,11 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    public List<Person> findAll() {
+        return (List<Person>) personRepository.findAll();
+    }
+
+    @Override
     public Person createPerson(Person person) {
         List<PhoneNumber> phoneNumbers = person.getPhoneNumbers();
         if (!phoneNumbers.isEmpty()){

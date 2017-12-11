@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import suwalaproject.contacts.entities.PhoneNumber;
 import suwalaproject.contacts.services.PhoneNumberService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/phoneNumber")
 public class PhoneNumberController {
@@ -33,6 +35,17 @@ public class PhoneNumberController {
         return ResponseEntity.ok().body(phoneNumber1);
     }
 
+    @RequestMapping(value = PhoneNumberRestURIConstants.FIND_ALL, method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<List<PhoneNumber>> findAll(){
+        List<PhoneNumber> phoneNumbers = phoneNumberService.findAll();
+        if (phoneNumbers == null){
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok().body(phoneNumbers);
+        }
+    }
+
     @RequestMapping(value = PhoneNumberRestURIConstants.CREATE_PHONE_NUMBER, method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<PhoneNumber> createPhoneNumber(@RequestBody PhoneNumber phoneNumber){
@@ -42,7 +55,7 @@ public class PhoneNumberController {
 
     @RequestMapping(value = PhoneNumberRestURIConstants.DELETE_PHONE_NUMBER, method = RequestMethod.DELETE)
     @ResponseBody
-    public ResponseEntity<PhoneNumber> deletePhoneNumber(@PathVariable Long id){
+    public ResponseEntity<PhoneNumber> deletePhoneNumber(@PathVariable("id") Long id){
         phoneNumberService.deletePhoneNumber(id);
         return ResponseEntity.ok().build();
     }

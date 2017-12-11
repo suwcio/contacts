@@ -50,6 +50,11 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
+    public List<Address> findAll() {
+        return (List<Address>) addressRepository.findAll();
+    }
+
+    @Override
     public Address createAddress(Address address) {
         return addressRepository.save(address);
     }

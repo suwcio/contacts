@@ -6,6 +6,8 @@ import suwalaproject.contacts.dao.EmailAddressRepository;
 import suwalaproject.contacts.entities.EmailAddress;
 import suwalaproject.contacts.services.EmailAddressService;
 
+import java.util.List;
+
 @Service
 public class EmailAddressServiceImpl implements EmailAddressService {
 
@@ -20,6 +22,11 @@ public class EmailAddressServiceImpl implements EmailAddressService {
     @Override
     public EmailAddress findEmailAddressByEmailAddress(String emailAddress) {
         return emailAddressRepository.findEmailAddressByEmailAddress(emailAddress);
+    }
+
+    @Override
+    public List<EmailAddress> findAll() {
+        return (List<EmailAddress>) emailAddressRepository.findAll();
     }
 
     @Override
